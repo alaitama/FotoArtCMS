@@ -3,11 +3,11 @@
 from setuptools import setup
 
 setup(
-    name='YourAppName',
+    name='isaac',
     version='1.0',
-    description='OpenShift App',
-    author='Your Name',
-    author_email='example@example.com',
+    description='My personal website hosted on OpenShift.',
+    author='Isaac Bythewood',
+    author_email='isaac@bythewood.me',
     url='http://www.python.org/sigs/distutils-sig/',
     install_requires=['Django==1.4', 'mezzanine==1.1.4'],
 )
