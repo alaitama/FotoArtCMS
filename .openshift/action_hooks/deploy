@@ -12,11 +12,11 @@ source $OPENSHIFT_GEAR_DIR/virtenv/bin/activate
 if [ ! -f $OPENSHIFT_DATA_DIR/sqlite3.db ]
 then
     echo "Creating intial database with example content."
-    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py createdb --noinput --settings=openshift.settings.production
+    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py createdb --noinput --settings=settings.production
 fi
 
 
 # Always collect static files, static dir is erased on push and we might have
 # something new.
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py collectstatic --noinput'"
-python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py collectstatic --noinput --settings=openshift.settings.production
+python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py collectstatic --noinput --settings=settings.production
