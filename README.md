@@ -28,10 +28,6 @@ Then push the repo upstream
 
     git push
 
-
-## Initial database creation
-
-To create the initial database login via SSH and run:
-
-    ~/python-2.6/virtenv/bin/python ~/app-root/repo/wsgi/openshift syncdb --noinput
-
+You can then access your new mezzanine instance at
+http://mezzanine-$yournamespace.rhcloud.com with the username and password
+`admin` and `default` respectively.

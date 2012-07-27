@@ -4,17 +4,19 @@
 # up again.  This script gets executed directly, so it could be python, php,
 # ruby, etc.
 
+
 source $OPENSHIFT_GEAR_DIR/virtenv/bin/activate
 
+
+# If no database exists create one with sample content.
 if [ ! -f $OPENSHIFT_DATA_DIR/sqlite3.db ]
 then
-    echo "Copying $OPENSHIFT_REPO_DIR/wsgi/openshift/sqlite3.db to $OPENSHIFT_DATA_DIR"
-    cp "$OPENSHIFT_REPO_DIR"wsgi/openshift/sqlite3.db $OPENSHIFT_DATA_DIR
-    python "$OPENSHIFT_REPO_DIR".openshift/action_hooks/secure_db.py
-else
-    echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py syncdb --noinput'"
-    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py syncdb --noinput
+    echo "Creating intial database with example content."
+    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py cratedb --noinput --settings=openshift.settings.production
 fi
 
+
+# Always collect static files, static dir is erased on push and we might have
+# something new.
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py collectstatic --noinput'"
-python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py collectstatic --noinput
+python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py collectstatic --noinput --settings=openshift.settings.production
