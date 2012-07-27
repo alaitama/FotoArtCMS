@@ -2,6 +2,7 @@ from settings import *
 
 
 DEBUG = False
+ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 
 
 DATABASES = {

@@ -1,7 +1,7 @@
-import imp, os
+import os
 
 
-PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../')
+PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 PROJECT_DIRNAME = 'openshift'
 
 
@@ -41,7 +41,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, "..", "static")
 # Media root is production-development specific, check other settings files.
 
 
-ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
 
