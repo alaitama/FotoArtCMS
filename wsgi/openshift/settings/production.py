@@ -16,7 +16,7 @@ DATABASES = {
 SECRET_KEY = 'your-super-secret-key'
 
 
-MEDIA_ROOT = os.environ.get('OPENSHIFT_DATA_DIR', '/media/')
+MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
 
 
 from mezzanine.utils.conf import set_dynamic_settings
