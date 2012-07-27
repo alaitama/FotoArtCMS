@@ -35,10 +35,9 @@ STATICFILES_FINDERS = (
 
 
 STATIC_URL = "/static/"
-MEDIA_URL = "/static/media/"
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "..", "static")
-# Media root is production-development specific, check other settings files.
+# Media is production-development specific, check other settings files.
 
 
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)

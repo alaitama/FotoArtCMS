@@ -17,6 +17,7 @@ DATABASES = {
 SECRET_KEY = 'development-key'
 
 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, '../../data/media/')
 
 
