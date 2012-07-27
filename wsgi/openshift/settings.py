@@ -129,16 +129,7 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = False
 
-# Make this unique, and don't share it with anybody.
-default_keys = { 'SECRET_KEY': 'vm4rl5*ymb@2&d_(gc$gb-^twq9w(u69hi--%$5xrh!xk(t%hw' }
-
-use_keys = default_keys
-if ON_OPENSHIFT:
-    imp.find_module('openshiftlibs')
-    import openshiftlibs
-    use_keys = openshiftlibs.openshift_secure(default_keys)
-
-SECRET_KEY = use_keys['SECRET_KEY']
+SECRET_KEY = '7uBFsTOj61MYyUQ8CKq3XRxU6P9w9FaoyHweftLEHuHlsC5H7xDUNNskENpwEF6'
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
