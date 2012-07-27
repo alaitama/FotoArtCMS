@@ -1,6 +1,0 @@
-# isaac
-
-To create the initial database login via SSH and run:
-
-    ~/python-2.6/virtenv/bin/python ~/app-root/repo/wsgi/openshift syncdb --noinput
-

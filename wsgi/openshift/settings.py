@@ -185,6 +185,8 @@ MEDIA_URL = '/static/media/'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
+if not ON_OPENSHIFT:
+    os.environ['OPENSHIFT_DATA_DIR'] = os.path.join(PROJECT_ROOT, '../../data/media/')
 MEDIA_ROOT = os.environ.get('OPENSHIFT_DATA_DIR', '/media/')
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
