@@ -1,4 +1,4 @@
-from openshift.settings import *
+from settings import *
 
 
 DEBUG = True

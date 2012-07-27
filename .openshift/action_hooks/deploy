@@ -12,7 +12,7 @@ source $OPENSHIFT_GEAR_DIR/virtenv/bin/activate
 if [ ! -f $OPENSHIFT_DATA_DIR/sqlite3.db ]
 then
     echo "Creating intial database with example content."
-    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py cratedb --noinput --settings=openshift.settings.production
+    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py createdb --noinput --settings=openshift.settings.production
 fi
 
 

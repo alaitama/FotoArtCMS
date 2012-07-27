@@ -1,8 +1,8 @@
 import imp, os
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
+PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../')
+PROJECT_DIRNAME = 'openshift'
 
 
 USE_SOUTH = True
