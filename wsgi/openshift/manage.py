@@ -26,7 +26,7 @@ for i, arg in enumerate(sys.argv):
 
 from django.core.management import execute_manager
 try:
-    import settings.development
+    import settings.development as settings
 except ImportError:
     import sys
     sys.stderr.write("Error: Can't find the file 'settings.py' in the "
