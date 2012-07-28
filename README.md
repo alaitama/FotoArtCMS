@@ -31,3 +31,10 @@ Then push the repo upstream
 You can then access your new mezzanine instance at
 http://mezzanine-$yournamespace.rhcloud.com with the username and password
 `admin` and `default` respectively.
+
+
+## Final notes
+
+In `wsgi/openshift/settings/production.py` `DEBUG` is set to `True` in order to
+get a default username and password but also for testing your app. Once you
+actually go into production be sure to set this to `False`.

@@ -1,7 +1,7 @@
 from settings import *
 
 
-DEBUG = False
+DEBUG = True
 ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 
 
