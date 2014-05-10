@@ -1,0 +1,20 @@
+#!/bin/bash
+# This deploy hook gets executed after dependencies are resolved and the
+# build hook has been run but before the application has been started back
+# up again.  This script gets executed directly, so it could be python, php,
+# ruby, etc.
+
+source $OPENSHIFT_PYTHON_DIR/virtenv/bin/activate
+
+# If no database exists create one with sample content.
+if [ ! -f $OPENSHIFT_DATA_DIR/sqlite3.db ]
+then
+    echo "Creating intial database with example content."
+    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py createdb --noinput --settings=settings.production
+fi
+
+
+# Always collect static files, static dir is erased on push and we might have
+# something new.
+echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py collectstatic --noinput'"
+python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py collectstatic --noinput --settings=settings.production

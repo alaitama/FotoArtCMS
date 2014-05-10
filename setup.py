@@ -1,10 +1,17 @@
+#!/usr/bin/env python
+
 from setuptools import setup
 
-setup(name='YourAppName',
-      version='1.0',
-      description='OpenShift App',
-      author='Your Name',
-      author_email='example@example.com',
-      url='http://www.python.org/sigs/distutils-sig/',
-#      install_requires=['Django>=1.3'],
-     )
+setup(
+    name='mezzanine-openshift',
+    version='1.2',
+    description='Mezzanine configured for deployment on OpenShift.',
+    author='Isaac Bythewood',
+    author_email='isaac@bythewood.me',
+    url='http://isaacbythewood.com/',
+    install_requires=[
+        'Django==1.5.1',
+        'mezzanine==1.4.7',
+        'django_compressor==1.3'
+    ],
+)

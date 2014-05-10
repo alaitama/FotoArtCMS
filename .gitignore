@@ -1,0 +1,5 @@
+# python
+*.pyc
+
+# media and databases 
+/data/*
