@@ -1,0 +1,128 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags staticfiles %}
+
+{% block extra_css %}
+<!--link rel="stylesheet" href="{% static "mezzanine/css/magnific-popup.css" %}"-->
+
+<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<!--link rel="stylesheet" href="{% static "css/bootstrap-image-gallery.min.css" %}"-->
+<link href="{% static "css/custom.css" %}" rel="stylesheet" type="text/css" />
+<style type="text/css">
+	@font-face
+	{
+	font-family: YanoneKaff;
+	src: url({% static "fonts/YanoneKaffeesatz-Regular.otf" %});
+	}
+</style>
+
+{% endblock extra_css %}
+
+{% block main %}
+{{ block.super }}
+
+{% editable page.gallery.content %}
+{{ page.gallery.content|richtext_filters|safe }}
+{% endeditable %}
+
+<div id="links">
+    {% with page.gallery.images.all as images %}
+	{% for image in images %}
+	<a title="{{ image.description }}" href="{{ image.file.url }}" data-gallery>
+		<img id="thumbnail-image" src="{{ MEDIA_URL }}{% thumbnail image.file 75 75 %}" alt="{{image.description}}" >
+	</a>
+	{% endfor %}
+	{% endwith %}
+	
+	
+</div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+
+
+<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<!--script src="{% static "js/blueimp-gallery.js" %}"></script-->
+<!--script src="{% static "js/bootstrap-image-gallery.js" %}"></script-->
+
+
+<!--
+<script type="text/javascript">
+
+var borderless = true;
+$('#blueimp-gallery').data('useBootstrapModal', !borderless);
+$('#blueimp-gallery').modal(true);
+$('#blueimp-gallery').toggleClass('blueimp-gallery-controls', borderless);
+
+
+
+// Load demo images from flickr:
+    $.ajax({
+        url: (window.location.protocol === 'https:' ?
+                'https://secure' : 'http://api') +
+                '.flickr.com/services/rest/',
+        data: {
+            format: 'json',
+            method: 'flickr.interestingness.getList',
+            api_key: '7617adae70159d09ba78cfec73c13be3'
+        },
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback'
+    }).done(function (result) {
+        var linksContainer = $('#links'),
+            baseUrl;
+        // Add the demo images as links with thumbnails to the page:
+        $.each(result.photos.photo, function (index, photo) {
+            baseUrl = 'http://farm' + photo.farm + '.static.flickr.com/' +
+                photo.server + '/' + photo.id + '_' + photo.secret;
+            $('<a/>')
+                .append($('<img>').prop('src', baseUrl + '_s.jpg'))
+                .prop('href', baseUrl + '_b.jpg')
+                .prop('title', photo.title)
+                .attr('data-gallery', '')
+                .appendTo(linksContainer);
+        });
+    });
+</script>
+-->
+
+{% endblock %}
