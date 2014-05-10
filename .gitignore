@@ -3,3 +3,4 @@
 
 # media and databases 
 /data/*
+/static/media/*
