@@ -1,3 +1,20 @@
+# FotoArtCMS
+
+## Local getting up and running
+
+Preparing local system for run locally
+
+	git clone <github repo>
+	cd fotoartcms
+	virtualenv venv
+	source venv/bin/activate
+	pip install -r requeriments.txt
+	python wsgi/openshift/manage.py createdb --noinput
+
+Now you can run the project locally
+
+	python wsgi/openshift/manage.py runserver
+
 # mezzanine-openshift
 
 This project is to provide the simplest way possible to run mezzanine on the
