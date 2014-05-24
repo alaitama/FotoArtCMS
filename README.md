@@ -13,7 +13,8 @@ Preparing local system for run locally
 
 Now you can run the project locally
 
-	python wsgi/openshift/manage.py runserver
+	cd wsgi/openshift
+	python wsgi/openshift/manage.py runserver --settings=settings.development
 
 # mezzanine-openshift
 
