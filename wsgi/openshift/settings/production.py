@@ -16,7 +16,7 @@ DATABASES = {
 SECRET_KEY = 'your-super-secret-key'
 
 
-MEDIA_URL = '/static/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
 
 
