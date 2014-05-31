@@ -29,7 +29,7 @@
     {% with page.gallery.images.all as images %}
 	{% for image in images %}
 	<a title="{{ image.description }}" href="{{ image.file.url }}" data-gallery>
-		<img id="thumbnail-image" src="{{ MEDIA_URL }}{% thumbnail image.file 75 75 %}" alt="{{image.description}}" >
+		<img id="thumbnail-image" src="{{ MEDIA_URL }}{% thumbnail image.file 150 150 %}" alt="{{image.description}}" >
 	</a>
 	{% endfor %}
 	{% endwith %}

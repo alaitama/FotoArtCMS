@@ -161,17 +161,6 @@ $('#blueimp-gallery').toggleClass('blueimp-gallery-controls', borderless);
 
 <div class="container">
 
-
-<div id="links">
-    {% with page.gallery.images.all as images %}
-	{% for image in images %}
-	<a title="{{ image.description }}" href="{{ image.file.url }}" data-gallery>
-		<img src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}" alt="{{image.description}}">
-	</a>
-	{% endfor %}
-	{% endwith %}
-</div>
-
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
     <!-- The container for the modal slides -->
@@ -211,26 +200,39 @@ $('#blueimp-gallery').toggleClass('blueimp-gallery-controls', borderless);
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
+        <!--h1>Hello, world!</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p-->
+        <div id="links">
+			{% with page.gallery.images.all as images %}
+			{% for image in images %}
+			<a title="{{ image.description }}" href="{{ image.file.url }}" data-gallery>
+				<img src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}" alt="{{image.description}}">
+			</a>
+			{% endfor %}
+			{% endwith %}
+		</div>
       </div>
+      
     </div>
 
     <div class="container principal">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4"><img src="/static/media/uploads/01.jpg" alt="Quienes somos" href="{% static " width="136" height="266" />
+        <div class="col-md-4">
+			<!--<img src="/static/media/uploads/01.jpg" alt="Quienes somos" href="{% static " width="136" height="266" />-->
 			<h2>Quienes somos</h2>
 			<p>Fotografia artificial se compone de Mabel Alejandra Soto. Fot&oacute;grafa de raza quien marcar&aacute; una visi&oacute;n particular y especial.</p>
 			<p><a href="#" class="btn btn-default">Acerca de &raquo;</a></p>
 		</div>
-		<div class="col-md-4"><img src="/static/media/uploads/04.jpg" alt="Quienes somos" href="{% static " width="136" height="266" />
+		<div class="col-md-4">
+			<!--<img src="/static/media/uploads/04.jpg" alt="Quienes somos" href="{% static " width="136" height="266" />-->
 			<h2>Servicios</h2>
 			<p>Disponemos de variedad de servicios. Contacte con nosotros o dirijase a el listado de nuestros servicios.</p>
 			<p><a href="#" class="btn btn-default">View details &raquo;</a></p>
 		</div>
-		<div class="col-md-4"><img src="/static/media/uploads/03.jpg" height="266" width="136" />
+		<div class="col-md-4">
+			<!--<img src="/static/media/uploads/03.jpg" height="266" width="136" />-->
 			<h2>Contacta</h2>
 			<p>Contacta con nosotros sin ning&uacute;n compromisos. Estaremos encantados de atenderte</p>
 			<p><a href="#" class="btn btn-default">Contacto &raquo;</a></p>
@@ -246,20 +248,16 @@ $('#blueimp-gallery').toggleClass('blueimp-gallery-controls', borderless);
 {% page_menu "pages/menus/footer.html" %}
 
 <div class="row">
-<p class="site-info text-center">
-    {% trans "Powered by" %}
-    <a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},
-    <a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}
-    {% trans "and" %}
-    <a href="http://www.djangoproject.com">Django</a>
-    <span class="separator">|</span>
-    {% trans "Theme by" %} <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>
-    {% ifinstalled mezzanine.mobile %}
-    <span class="separator">|</span>
-    <a href="{% url "set_device" "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
-    {% endifinstalled %}
-</p>
+	<p class="text-center">
+	<span class="site-info text-center">
+		FotografiaArtificial.com &copy; 
+	</span>
+	<span>	
+		{% trans "Todos los derechos reservados" %}
+	</span>
+	</p>
 </div>
+
 </div>
 </footer>
 
