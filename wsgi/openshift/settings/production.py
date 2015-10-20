@@ -61,14 +61,17 @@ MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
 #######
 # Desactivo AWS hasta arreglar:
 # remote: boto.exception.S3ResponseError: S3ResponseError: 400 Bad Request
-"""
+
 INSTALLED_APPS += (
       'storages',
  )
 
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+#AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+#AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+#AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = "fotoartcms"
+AWS_ACCESS_KEY_ID = "AKIAJN4OFYQK45ZHSADA"
+AWS_SECRET_ACCESS_KEY = "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"
 
 # Tell django-storages that when coming up with the URL for an item in S3 storage, keep
 # it simple - just use this domain plus the path. (If this isn't set, things get complicated).
@@ -99,7 +102,6 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
   'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
   'Cache-Control': 'max-age=94608000',
 }
-"""
 
 
 #DEFAULT_CHARSET = 'en_US.utf-8'
