@@ -103,3 +103,6 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
 
 from mezzanine.utils.conf import set_dynamic_settings
 set_dynamic_settings(globals())
+
+DEFAULT_CHARSET = 'es_ES.utf-8'
+FILE_CHARSET = 'es_ES.utf-8'
