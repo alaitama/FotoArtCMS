@@ -3,6 +3,7 @@
 # build hook has been run but before the application has been started back
 # up again.  This script gets executed directly, so it could be python, php,
 # ruby, etc.
+LC_ALL="en_US.utf8"
 
 source $OPENSHIFT_PYTHON_DIR/virtenv/bin/activate
 
