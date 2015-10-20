@@ -59,6 +59,9 @@ MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
 #######
 # AWS #
 #######
+# Desactivo AWS hasta arreglar:
+# remote: boto.exception.S3ResponseError: S3ResponseError: 400 Bad Request
+"""
 INSTALLED_APPS += (
       'storages',
  )
@@ -96,6 +99,7 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
   'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
   'Cache-Control': 'max-age=94608000',
 }
+"""
 
 from mezzanine.utils.conf import set_dynamic_settings
 set_dynamic_settings(globals())
