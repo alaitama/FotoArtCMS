@@ -108,13 +108,16 @@
 {% endif %}
 {% endnevercache %}
 
-<h1>{% block title %}{% endblock %}</h1>
+<h1 class="page-header">{% block title %}{% endblock %}</h1>
 
+<!-- Quitamos breadcrumb inecesario -->
+<!--
 <ul class="breadcrumb">
 {% spaceless %}
 {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
 {% endspaceless %}
 </ul>
+-->
 
 </div>
 
@@ -129,9 +132,9 @@
 <div class="row">
 	<p class="text-center">
 	<span class="site-info text-center">
-		FotografiaArtificial.com &copy; 
+		FotografiaArtificial.com &copy;
 	</span>
-	<span>	
+	<span>
 		{% trans "Todos los derechos reservados" %}
 	</span>
 	</p>

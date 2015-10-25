@@ -21,9 +21,12 @@
 {% block main %}
 {{ block.super }}
 
+<!-- Quitamos texto contenido de las galerias -->
+<!--
 {% editable page.gallery.content %}
 {{ page.gallery.content|richtext_filters|safe }}
 {% endeditable %}
+-->
 
 <div id="links">
     {% with page.gallery.images.all as images %}
@@ -33,8 +36,8 @@
 	</a>
 	{% endfor %}
 	{% endwith %}
-	
-	
+
+
 </div>
 
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
