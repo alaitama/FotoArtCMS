@@ -105,5 +105,14 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
 #DEFAULT_CHARSET = 'en_US.utf-8'
 #FILE_CHARSET = 'es_ES.utf-8'
 
+#######################
+# EMAIL CONFIGURATION #
+#######################
+EMAIL_HOST = 'smtp.fotografiaartificial.com'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ggb272c'
+EMAIL_HOST_PASSWORD = os.environ['SMTP_CONTACTO_PASS']
+
 from mezzanine.utils.conf import set_dynamic_settings
 set_dynamic_settings(globals())

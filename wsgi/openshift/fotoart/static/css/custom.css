@@ -19,7 +19,7 @@ h1, h2, h3, .navbar, .site-info {
 }
 
 .nav-footer > ul > li {
-  padding: 0px 0; 
+  padding: 0px 0;
 }
 
 .site-info {
@@ -33,6 +33,18 @@ body {
 }
 */
 
+
+.p-nav {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+#links > a {
+	font-size: 0%;
+}
+
 #thumbnail-image {
-	margin-right: -4px;
+	/*margin-right: -4px;
+	*/
 }
